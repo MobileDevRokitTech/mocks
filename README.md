@@ -1,2 +1,2 @@
-# mocks
+# iGLobe mocks
 Apiary mocks
