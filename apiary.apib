@@ -1,0 +1,115 @@
+FORMAT: 1A
+
+# iglobe
+It's a mock service for iGlobe API 
+
+# Route Search
+This part represents routing functionality
+
+## Returns predefined routing results [/route]
+### List of routes and ways [GET]
++ Response 200 (application/json)
+
+        {
+            "from": "kiev", 
+            "to": "india",
+            "routes": 
+            [
+                {
+                    "origin":
+                    { 
+                        "name": "Kiev",
+                        "coordinate":
+                        {
+                            "lat": 12.1212,
+                            "lng": 21.1213
+                        }
+                    },
+                    "destination": 
+                    {
+                        "name": "New Delhi",
+                        "coordinate":
+                        {
+                            "lat": 12.1212,
+                            "lng": 21.1213
+                        }                        
+                    },
+                    "departure_time": "2005-08-09T18:31:42",
+                    "arrival_time": "2005-08-09T18:31:42",                    
+                    "duration": 32357,
+                    "price":50,
+                    "way": 
+                    [ 
+                        {
+                            "origin":
+                            { 
+                                "name": "Kiev",
+                                "coordinate":
+                                {
+                                    "lat": 12.1212,
+                                    "lng": 21.1213
+                                }
+                            },
+                            "destination": 
+                            {
+                                "name": "New Delhi",
+                                "coordinate":
+                                {
+                                    "lat": 12.1212,
+                                    "lng": 21.1213
+                                }                        
+                            },
+                            "departure_time": "2005-08-09T18:31:42",
+                            "arrival_time": "2005-08-09T18:31:42",                    
+                            "duration": 32357,
+                            "price":50,
+                            "booking_code": 3233,
+                            "name": "Kiev - New Delhi",
+                            "short_name" : "7744K", 
+                            "transport_type": "HEAV_RAIL",
+                            "agencies":
+                            [ 
+                                { 
+                                    "name": "Routes.com", 
+                                    "url": "http://transport.marshruty.ru/Transports/TransportByCode.aspx?Code=774%D0%9A%D0%90&FromId=95797&ToId=94430&fr=gt"  
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+# Group Booking
+This part represents Booking functionality
+
+## Returns predefined booking results [/book]
+### Single booking item [GET]
++ Response 200 (application/json)
+        
+        {
+            "entity": "Hotel", 
+            "identity": "Hayat",
+            "location": "Kiev",
+            "date": "2005-08-09T18:31:42",
+            "dayscount": 7,
+            "personcount": 2,
+            "state": "succeeded",
+            "description": "booking succeeded",
+            "metadata":"1234123512341234"
+        }
+
+## Returns predefined booking results [/book/test]
+### Single booking item [POST]
++ Request (application/json)
+
+        {
+            "entity": "hotel",
+            "identity": "hilton",
+            "location": "kiev"
+        }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
